@@ -1,0 +1,53 @@
+.game-icons {
+  justify-content: center;
+}
+.game-icons img {
+  max-width: 23.5%;
+  height: auto;
+  z-index: 1;
+  margin-left: -15px !important;
+  margin-top: 0;
+}
+@media (min-width: 30em) {
+  .game-icons img {
+    margin-left: -22.5px !important;
+    
+  }
+}
+@media (min-width: 48em) {
+  .game-icons img {
+    margin-left: -30px !important;
+  }
+}
+.game-icons img:first-child {
+  transform: translate(0px, -15px);
+  max-width: 29%;
+  margin-left: 0;
+  transform:rotateZ(-10deg);
+}
+.game-icons img:last-child {
+  transform: translate(-20px, -15px);
+  max-width: 40%;
+}
+.game-icons img:nth-child(2) {
+  max-width: 43%;
+  z-index: 3;
+  padding-left: 15px;
+  
+}
+@media (max-width:550px) {
+  .game-icons img:nth-child(2) {
+    padding-left: 0px;
+}
+}
+.game-icons img:nth-child(3) {
+  transform: translate(5px, -5px);
+  margin-top: 13px;
+  
+  max-width: 29%;
+  transform:rotateZ(10deg);
+}
+.game-icons img:nth-child(4) {
+  transform: translate(-15px, -5px);
+  z-index: 2;
+}

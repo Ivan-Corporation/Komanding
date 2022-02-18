@@ -1,0 +1,88 @@
+.monitor {
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 560px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  display: block;
+  cursor: pointer;
+}
+.monitor .screen {
+  transform: rotateY(-17deg) rotateZ(2deg);
+}
+.monitor .screen .frontside {
+  backface-visibility: hidden;
+  border: 8px solid #282828;
+  z-index: 2;
+}
+.monitor .screen .backside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e1/YouTube_play_buttom_icon_%282013-2017%29.svg");
+  background-color: #595959;
+  width: 100%;
+  border: 8px solid #282828;
+  z-index: 3;
+  opacity: 1;
+}
+.monitor .screen .backside::after {
+  height: 0;
+  content: "";
+  display: block;
+  padding-bottom: 56.25%;
+}
+.monitor .screen .backside.hide {
+  animation: fade 0.8s ease forwards;
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+    z-index: 3;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+.monitor .stand {
+  height: 100px;
+  width: 20%;
+  max-width: 60px;
+  background: #282828;
+  position: relative;
+  left: 50%;
+  transform: rotateY(-15deg);
+  border-right: 5px inset silver;
+}
+.monitor .stand::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border-left: 3px inset silver;
+  width: 50%;
+  height: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+}
+.chakra-ui-light .monitor .stand::after {
+  background: #edf2f7;
+}
+.chakra-ui-dark .monitor .stand::after {
+  background: #141214;
+}
+.monitor .bottom {
+  position: absolute;
+  width: 50%;
+  max-width: 200px;
+  height: 100px;
+  background-color: #707575;
+  left: 50%;
+  bottom: -50px;
+  transform: rotateX(90deg) rotateZ(15deg) translateX(-35%);
+  border: 15px inset #575b5b;
+}
