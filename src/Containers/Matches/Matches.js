@@ -1,11 +1,20 @@
 import { Icon } from "@chakra-ui/icons";
-import { Box, Flex, Stack, Text, Heading, VStack, Image } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text, Heading, VStack, Image, Link, Center, useColorMode } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { SlidingImage, SlidingText } from "../../Components/sliders/index";
 import { useLocale } from "../../Components/LocaleProvider/LocaleProvider";
 import content from "./content";
+import { RepositoryMetrics } from 'repository-metrics';
+import { LocaleContext } from "../../Components/LocaleProvider/LocaleProvider";
 
-const Card = ({ image, title, body }) => {
+
+
+const Card = ({ image, title, body, link, owner, repo }) => {
+
+    const { colorMode, toggleColorMode } = useColorMode();
+
+
+
     return (
         <VStack maxW="480px" align="center" justify="center" textAlign="center">
             <SlidingImage
@@ -13,9 +22,16 @@ const Card = ({ image, title, body }) => {
                 offset={50}
                 style={{ marginBottom: "1rem" }}
             >
-                <Box boxSize='300px'>
-                    <Image src={image} boxSize='300px' borderRadius='full' />
-                </Box>
+                <Link href={link}>
+                    <Image src={image} borderRadius='full' />
+                </Link>
+                <Center mt={20}>
+                    <RepositoryMetrics
+                        owner={owner}
+                        repo={repo}
+                        theme={colorMode === "light" ? "light" : "dark"}
+                    />
+                </Center>
             </SlidingImage>
             <SlidingText>
                 <Heading mb={3}>{title}</Heading>
@@ -24,7 +40,7 @@ const Card = ({ image, title, body }) => {
                 <hr />
             </SlidingText>
 
-        </VStack>
+        </VStack >
     );
 };
 
