@@ -7,20 +7,23 @@ import content from "./content";
 
 const Card = ({ image, title, body }) => {
     return (
-        <VStack maxW="280px" align="center" justify="center" textAlign="center">
+        <VStack maxW="480px" align="center" justify="center" textAlign="center">
             <SlidingImage
                 dir="top"
                 offset={50}
                 style={{ marginBottom: "1rem" }}
             >
-                <Box boxSize='sm'>
+                <Box boxSize='300px'>
                     <Image src={image} boxSize='300px' borderRadius='full' />
                 </Box>
             </SlidingImage>
             <SlidingText>
                 <Heading mb={3}>{title}</Heading>
                 <Text>{body}</Text>
+                <br />
+                <hr />
             </SlidingText>
+
         </VStack>
     );
 };

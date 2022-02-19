@@ -124,7 +124,7 @@ export default (props) => {
                         </Button>
                         <NavbarIcon
                             icon={EmailIcon}
-                            href="/"
+                            href="mailto:hammer.99.ivan@gmail.com"
 
                         />
                         <Button

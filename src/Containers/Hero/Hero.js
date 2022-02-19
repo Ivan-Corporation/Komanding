@@ -4,6 +4,8 @@ import { motion, useAnimation } from "framer-motion";
 import { Title } from "./Title";
 import React, { useEffect } from "react";
 import "./Hero.css";
+import profile from '../../images/profile.png'
+
 
 export const Hero = (props) => {
   const { colorMode } = useColorMode();
@@ -54,9 +56,18 @@ export const Hero = (props) => {
             <Title />
           </Box>
           {/* Parallax here! */}
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            style={{ x: 0, y: 50 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
 
+          >
+            <img src={profile} width='230px' />
+          </motion.a>
         </Flex>
       </motion.div>
-    </Box>
+    </Box >
   );
 };
